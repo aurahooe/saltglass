@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saltglass</title>
+  <meta name="description" content="A living ledger. Notes stay private unless you pin them to the street. The hour turns itself." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wash" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="mark" href="/" data-nav="home">
+      <span class="mark-dot"></span>
+      Saltglass
+    </a>
+    <nav class="nav">
+      <button type="button" data-nav="street">Street</button>
+      <button type="button" data-nav="desk">Desk</button>
+      <button type="button" data-nav="hour">This hour</button>
+    </nav>
+    <div class="clock" id="clock">
+      <span id="clock-time">—</span>
+      <span class="clock-label">until turn</span>
+    </div>
+    <div class="auth-slot" id="auth-slot"></div>
+  </header>
+
+  <main id="stage"></main>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <dialog class="sheet" id="auth-sheet">
+    <form id="auth-form" method="dialog">
+      <p class="kicker">Account</p>
+      <h2>Come in quietly</h2>
+      <p class="lede">Email and a password. Nothing else to start.</p>
+      <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+      <label>Password<input type="password" name="password" required minlength="6" autocomplete="current-password" /></label>
+      <div class="row">
+        <button type="submit" name="mode" value="in" class="btn">Sign in</button>
+        <button type="submit" name="mode" value="up" class="btn ghost">Create account</button>
+      </div>
+      <button type="button" class="textish" id="auth-close">Close</button>
+    </form>
+  </dialog>
+</body>
+</html>
